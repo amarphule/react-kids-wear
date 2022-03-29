@@ -13,11 +13,11 @@ function App() {
      <h1>Hello ecom</h1>
      <Routes>
        <Route path="/" element={<Home/>}/>
-       <Route path="/login" element={<Login/>}/>
-       <Route path="/signup" element={<Signup/>}/>
-       <Route path="/product-lists" element={<ProductLists/>}/>
-       <Route path="/wishlist" element={<WishList/>}/>
-       <Route path="/cart" element={<Cart/>}/>
+       <Route path="login" element={<Login/>}/>
+       <Route path="signup" element={<Signup/>}/>
+       <Route path="product-lists" element={<ProductLists/>}/>
+       <Route path="wishlist" element={<WishList/>}/>
+       <Route path="cart" element={<Cart/>}/>
      </Routes>
      
      
