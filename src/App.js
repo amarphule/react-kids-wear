@@ -1,23 +1,27 @@
 import { Route, Routes } from "react-router-dom";
+import Mockman from "mockman-js"
 import "./App.css";
-import Cart from "./Components/Cart";
-import Home from "./Components/Home";
-import Login from "./Components/Login";
-import ProductLists from "./Components/ProductLists";
-import Signup from "./Components/Signup";
-import WishList from "./Components/WishList";
+import Navbar from "./Components/Navbar/Navbar";
+import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
+import ProductLists from "./Pages/ProductLists/ProductLists";
+import Signup from "./Pages/Signup/Signup";
+import WishList from "./Pages/Wishlist/WishList";
+import Cart from "./Pages/Cart/Cart";
+
 
 function App() {
   return (
     <div className="App">
-     <h1>Hello ecom</h1>
+     <Navbar />
      <Routes>
        <Route path="/" element={<Home/>}/>
-       <Route path="login" element={<Login/>}/>
-       <Route path="signup" element={<Signup/>}/>
-       <Route path="product-lists" element={<ProductLists/>}/>
-       <Route path="wishlist" element={<WishList/>}/>
-       <Route path="cart" element={<Cart/>}/>
+       <Route path="/login" element={<Login/>}/>
+       <Route path="/signup" element={<Signup/>}/>
+       <Route path="/product-lists" element={<ProductLists/>}/>
+       <Route path="/wishlist" element={<WishList/>}/>
+       <Route path="/cart" element={<Cart/>}/>
+       <Route path="/mockman" element={<Mockman/>}/>
      </Routes>
      
      

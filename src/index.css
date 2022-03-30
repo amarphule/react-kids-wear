@@ -1,13 +1,100 @@
+:root {
+  --white-color: #fff;
+}
 body {
+  background-color: var(--hover-bg);
+}
+.btn {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--white-color);
+}
+.btn:hover {
+  color: black;
+}
+.badge {
+  font-size: 1rem;
+  background-color: var(--cta-color);
+  font-weight: bold;
+  padding: 5px;
+}
+.badge-wrapper i {
+  font-size: 2rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* search start */
+.search {
+  display: flex;
+  align-items: center;
 }
+.search-icon {
+  position: relative;
+  left: 2rem;
+  color: var(--secondary-color);
+}
+.search input {
+  padding: 1rem 1rem 1rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+}
+/* search end */
+.container {
+  border-bottom: 0;
+  width: 80%;
+  margin: auto;
+}
+.feature {
+  position: relative;
+  top: 5rem;
+}
+.card {
+  max-width: fit-content;
+  max-height: inherit;
+  position: relative;
+  transition: transform 0.3s;
+  background-color: var(--white-color);
+}
+.card:hover {
+  transform: scale(1.1);
+}
+.card-details-overlay {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: initial;
+  transform: translate(0, -50%);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: var(--icon-color);
+}
+.title-overlay {
+  text-align: center;
+  bottom: 0;
+}
+.justify-content-space-between {
+  justify-content: space-between;
+}
+/* Banner start */
+.banner {
+  margin-top: 2rem;
+}
+.img-fluid {
+  background-image: url("./image/banner1.jpg");
+  height: 10rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.btn-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Banner end */
+
+/* New Arrival start*/
+.new-arrival {
+  gap: 3rem;
+}
+/* New Arrival End*/

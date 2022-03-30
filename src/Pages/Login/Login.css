@@ -1,0 +1,30 @@
+.card-login {
+  margin: auto;
+  width: 40%;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+}
+.input-group > .label {
+  display: block;
+}
+.link-forgot {
+  color: var(--cta-color);
+}
+.signup-link {
+  font-size: 1.5rem;
+}
+.create-link {
+  margin-left: 0.7rem;
+  font-size: 1.2rem;
+}
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

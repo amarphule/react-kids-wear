@@ -1,0 +1,57 @@
+/* Sidebar */
+.sidebar-heading {
+  padding: 0 1rem;
+  margin: 1.5rem 0;
+}
+.slide-container,
+.category-container,
+.rating-container,
+.sort-container {
+  margin-bottom: 2rem;
+}
+.sidebar-heading a {
+  color: var(--primary-color);
+}
+.baseline {
+  align-items: baseline;
+}
+.btn-link:hover {
+  color: var(--cta-color);
+}
+
+/* Slider start */
+.slider-container > p {
+  display: flex;
+  justify-content: space-between;
+}
+input[type="range"] {
+  width: 100%;
+}
+/* Slider end */
+
+/* category start*/
+.list-items {
+  font-size: 1rem;
+}
+.list-item {
+  padding: 0.5rem 0;
+}
+.list-item:hover {
+  color: var(--primary-color);
+  font-weight: 100;
+}
+/* category end*/
+
+/* Product listing area */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: var(--hover-bg);
+}
+.grid > .card {
+  border: none;
+  border-radius: 5px;
+}
+.card-details {
+  padding: 1rem;
+}
