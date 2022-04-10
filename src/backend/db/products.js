@@ -133,7 +133,7 @@ export const products = [
     description:
       "Girl's Synthetic Kurta Pyjama Set Girl's Synthetic Kurta Pyjama Set",
     price: "5000",
-    discount: "50",
+    discount: "25",
     inStock: false,
     rating: 2,
     image: "/asset/girl2.jpg",
@@ -157,7 +157,7 @@ export const products = [
     description:
       "Girl's Synthetic Kurta Pyjama Set Girl's Synthetic Kurta Pyjama Set",
     price: "5000",
-    discount: "50",
+    discount: "10",
     inStock: true,
     rating: 4,
     image: "/asset/girl4.jpg",

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { categories } from "../../backend/db/categories";
+import { useNavigate } from "react-router-dom";
 
 const Category = () => {
-  console.log(categories);
   const [catagoryItems, setCatagoryItems] = useState(categories);
+  const navigate = useNavigate();
   return (
     <div>
       <div className="container feature">
@@ -11,7 +12,10 @@ const Category = () => {
         <section className="d-flex justify-content-space-between">
           {catagoryItems &&
             catagoryItems.map((item) => (
-              <div className="card card-vertical card-overlay">
+              <div
+                className="card card-vertical card-overlay"
+                onClick={() => navigate("/product-lists")}
+              >
                 <img
                   className="img-thumbnail"
                   src={item.image}
@@ -22,31 +26,6 @@ const Category = () => {
                 </div>
               </div>
             ))}
-
-          {/* <div className="card card-vertical card-overlay">
-            <img className="img-thumbnail" src="./asset/girl.jpg" alt="Shirt" />
-            <div className="card-details-overlay py-1">
-              <div className="title-overlay">Girl</div>
-            </div>
-          </div> */}
-          {/* <div className="card card-vertical card-overlay">
-            <img className="img-thumbnail" src="./asset/boy.jpg" alt="Shirt" />
-            <div className="card-details-overlay py-1">
-              <div className="title-overlay">Boy</div>
-            </div>
-          </div>
-          <div className="card card-vertical card-overlay">
-            <img className="img-thumbnail" src="./asset/girl.jpg" alt="Shirt" />
-            <div className="card-details-overlay py-1">
-              <div className="title-overlay">Girl</div>
-            </div>
-          </div>
-          <div className="card card-vertical card-overlay">
-            <img className="img-thumbnail" src="./asset/boy.jpg" alt="Shirt" />
-            <div className="card-details-overlay py-1">
-              <div className="title-overlay">Boy</div>
-            </div>
-          </div> */}
         </section>
       </div>
     </div>
