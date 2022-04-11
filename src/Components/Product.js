@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useWishList } from "../Contexts/WishListContext";
 
 const Product = ({ product }) => {
   const [isInCart, setIsInCart] = useState(false);
@@ -13,12 +14,36 @@ const Product = ({ product }) => {
   const removeFromCartHandler = () => {
     setIsInCart(false);
   };
+
+  const { wishlist, setWishlist } = useWishList();
+
+  const addWishlistHandler = (e) => {
+    e.preventDefault();
+    setWishlist((prevWish) => [...prevWish, product]);
+  };
+  const removeWishlistHandler = (e) => {
+    e.preventDefault();
+    const newWishlist = wishlist.filter((element) => element._id != _id);
+    setWishlist(newWishlist);
+  };
   return (
     <div className="card" key={_id}>
-      <img className="img-thumbnail" src={image} alt="boy" />
-      <span className="card-badge card-badge-icon">
-        <i className="fas fa-heart"></i>
-      </span>
+      <img className="img-thumbnail" src={image} alt={image} />
+      {wishlist.find((element) => element._id === _id) ? (
+        <span
+          className="card-badge card-badge-icon"
+          onClick={(e) => removeWishlistHandler(e)}
+        >
+          <i className="fas fa-heart"></i>
+        </span>
+      ) : (
+        <span
+          className="card-badge card-badge-icon"
+          onClick={(e) => addWishlistHandler(e)}
+        >
+          <i class="far fa-heart"></i>
+        </span>
+      )}
       <div className="card-details">
         <div className="title pt-1">{title}</div>
         <div className="subTitle text-l">

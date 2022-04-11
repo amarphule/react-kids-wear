@@ -2,8 +2,8 @@ import React from "react";
 import "./ProductLists.css";
 import Product from "../../Components/Product";
 import Filters from "../../Components/Filter/Filters";
-import { useProductLists } from "../../Context/ProductContext";
-import { useFilter } from "../../Context/FilterContext";
+import { useProductLists } from "../../Contexts/ProductContext";
+import { useFilter } from "../../Contexts/FilterContext";
 
 const ProductLists = () => {
   const { productLists } = useProductLists();

@@ -1,71 +1,28 @@
-import React from 'react'
-import "./WishList.css"
+import React from "react";
+import { useWishList } from "../../Contexts/WishListContext";
+import Product from "../../Components/Product";
+
+import "./WishList.css";
 
 const WishList = () => {
+  const { wishlist } = useWishList();
+  console.log(wishlist);
   return (
-    <div><main class="main-container">
-    <section class="container">
-      <h2 class="text-center">My Wishlist</h2>
-      <div class="d-flex justify-content-space-between">
-        <div class="card">
-          <img class="img-thumbnail" src="../asset/boy.jpg" alt="boy" />
-          <span class="card-badge card-badge-icon">
-            <i class="fas fa-heart"></i>
-          </span>
-          <div class="card-details">
-            <div class="subTitle pt-1">Boy Premier Shirt</div>
-            <div class="title">&#8377; 2000</div>
-            <button class="btn btn-cta">Add to cart</button>
+    <main className="main-container">
+      <section className="container">
+        <h2 className="text-center">My Wishlist</h2>
+        {wishlist.length <= 0 ? (
+          <h1>Wishlist is empty. Please add some products.</h1>
+        ) : (
+          <div className="grid">
+            {wishlist.map((product) => (
+              <Product key={product._id} product={product} />
+            ))}
           </div>
-        </div>
-        <div class="card">
-          <img class="img-thumbnail" src="../asset/boy.jpg" alt="boy" />
-          <span class="card-badge card-badge-icon">
-            <i class="fas fa-heart"></i>
-          </span>
-          <div class="card-details">
-            <div class="subTitle pt-1">Boy Premier Shirt</div>
-            <div class="title">&#8377; 2000</div>
-            <button class="btn btn-cta">Add to cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="img-thumbnail" src="../asset/boy.jpg" alt="boy" />
-          <span class="card-badge card-badge-icon">
-            <i class="fas fa-heart"></i>
-          </span>
-          <div class="card-details">
-            <div class="subTitle pt-1">Boy Premier Shirt</div>
-            <div class="title">&#8377; 2000</div>
-            <button class="btn btn-cta">Add to cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="img-thumbnail" src="../asset/boy.jpg" alt="boy" />
-          <span class="card-badge card-badge-icon">
-            <i class="fas fa-heart"></i>
-          </span>
-          <div class="card-details">
-            <div class="subTitle pt-1">Boy Premier Shirt</div>
-            <div class="title">&#8377; 2000</div>
-            <button class="btn btn-cta">Add to cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="img-thumbnail" src="../asset/boy.jpg" alt="boy" />
-          <span class="card-badge card-badge-icon">
-            <i class="fas fa-heart"></i>
-          </span>
-          <div class="card-details">
-            <div class="subTitle pt-1">Boy Premier Shirt</div>
-            <div class="title">&#8377; 2000</div>
-            <button class="btn btn-cta">Add to cart</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main></div>
-  )
-}
+        )}
+      </section>
+    </main>
+  );
+};
 
-export default WishList
+export default WishList;

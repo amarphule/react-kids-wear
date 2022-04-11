@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useProductLists } from "../../Context/ProductContext";
+import { useProductLists } from "../../Contexts/ProductContext";
 
 const NewArrival = () => {
   const navigate = useNavigate();
