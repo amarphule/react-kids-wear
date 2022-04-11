@@ -71,20 +71,16 @@ const Filters = () => {
             <h3>Rating</h3>
             <ul className="list-items">
               {ratings.map((item) => (
-                <>
-                  <li key={item} className="list-item">
-                    <input
-                      type="radio"
-                      name={item}
-                      onChange={() =>
-                        dispatch({ type: "RATING", payload: item })
-                      }
-                      id={item}
-                      checked={rating === item}
-                    />
-                    <label htmlFor="#four-above"> {item} starts & above</label>
-                  </li>
-                </>
+                <li key={item} className="list-item">
+                  <input
+                    type="radio"
+                    name={item}
+                    onChange={() => dispatch({ type: "RATING", payload: item })}
+                    id={item}
+                    checked={rating === item}
+                  />
+                  <label htmlFor="#four-above"> {item} starts & above</label>
+                </li>
               ))}
             </ul>
           </div>

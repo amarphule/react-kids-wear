@@ -10,7 +10,10 @@ const ProductLists = () => {
   const { state } = useFilter();
 
   const filterByRange = (products, price) => {
-    return products.filter((prod) => Number(prod.price) < Number(price));
+    if (price === null) {
+      return productLists;
+    }
+    return products.filter((prod) => Number(prod.price) <= Number(price));
   };
 
   const filterByCategory = (products, category) => {
@@ -38,17 +41,16 @@ const ProductLists = () => {
     return products;
   };
 
-  // compose function
   const filteredProducts = (() => {
-    return filterByRange(
+    return filterSortByPrice(
       filterByCategory(
         filterByRating(
-          filterSortByPrice([...productLists], state.sort),
+          filterByRange([...productLists], state.range),
           state.rating
         ),
         state.category
       ),
-      state.range
+      state.sort
     );
   })();
 
