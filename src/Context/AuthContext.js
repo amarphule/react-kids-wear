@@ -14,8 +14,8 @@ const AuthProvider = ({ children }) => {
   const loginHandler = async (email, password) => {
     try {
       const response = await axios.post(`/api/auth/login`, {
-        email: email,
-        password: password,
+        email,
+        password,
       });
       localStorage.setItem("token", response.data.encodedToken);
       setIsLoggedIn(true);
@@ -34,11 +34,11 @@ const AuthProvider = ({ children }) => {
   }) => {
     try {
       const response = await axios.post(`/api/auth/signup`, {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-        confPassword: confPassword,
+        firstName,
+        lastName,
+        email,
+        password,
+        confPassword,
       });
       localStorage.setItem("token", response.data.encodedToken);
       setIsLoggedIn(true);

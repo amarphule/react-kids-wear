@@ -70,16 +70,16 @@ const Filters = () => {
           <div className="rating-container">
             <h3>Rating</h3>
             <ul className="list-items">
-              {ratings.map((item) => (
-                <li key={item} className="list-item">
+              {ratings.map((star) => (
+                <li key={star} className="list-item">
                   <input
                     type="radio"
-                    name={item}
-                    onChange={() => dispatch({ type: "RATING", payload: item })}
-                    id={item}
-                    checked={rating === item}
+                    name={star}
+                    onChange={() => dispatch({ type: "RATING", payload: star })}
+                    id={star}
+                    checked={rating === star}
                   />
-                  <label htmlFor="#four-above"> {item} starts & above</label>
+                  <label htmlFor="#four-above"> {star} stars & above</label>
                 </li>
               ))}
             </ul>

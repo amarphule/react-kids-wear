@@ -6,13 +6,17 @@ import "./Login.css";
 const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const { loginHandler } = useAuth();
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    loginHandler(user.email, user.password);
+  };
   return (
     <div>
       <main className="container">
         <form
           onSubmit={(e) => {
-            e.preventDefault();
-            loginHandler(user.email, user.password);
+            logoutHandler(e);
           }}
           className="card-login card-shadow"
         >
