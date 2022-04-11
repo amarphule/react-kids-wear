@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth } from "../../Contexts/AuthContext";
+import { useWishList } from "../../Contexts/WishListContext";
 
 const Navbar = () => {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const { wishlist } = useWishList();
   return (
     <div>
       <header className="header">
@@ -41,7 +43,9 @@ const Navbar = () => {
               <Link to="/wishlist">
                 <div className="badge-wrapper">
                   <i className="far fa-heart"></i>
-                  <span className="badge badge-icon-val">1</span>
+                  <span className="badge badge-icon-val">
+                    {wishlist.length}
+                  </span>
                 </div>
               </Link>
             </li>
