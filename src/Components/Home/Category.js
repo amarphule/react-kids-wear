@@ -13,6 +13,7 @@ const Category = () => {
           {catagoryItems &&
             catagoryItems.map((item) => (
               <div
+                key={item._id}
                 className="card card-vertical card-overlay"
                 onClick={() => navigate("/product-lists")}
               >

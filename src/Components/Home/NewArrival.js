@@ -1,8 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useProductLists } from "../../Context/ProductContext";
 
-const NewArrival = ({ newArrival }) => {
+const NewArrival = () => {
   const navigate = useNavigate();
+
+  const { productLists } = useProductLists();
+  const newArrival = productLists.filter((prod) => prod.tag);
   return (
     <div className="container">
       <h2 className="text-center">New Arrival</h2>

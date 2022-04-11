@@ -16,14 +16,16 @@ const reducerFunc = (state, action) => {
       return { ...state, rating: action.payload };
     case "SORT_BY_PRICE":
       return { ...state, sort: action.payload };
-    default:
+    case "CLEAR":
       return {
         category: [],
         rating: null,
         price: null,
         sort: null,
-        range: 2000,
+        range: null,
       };
+    default:
+      return state;
   }
 };
 const initialValue = {
@@ -31,7 +33,7 @@ const initialValue = {
   rating: null,
   price: null,
   sort: null,
-  range: 2000,
+  range: null,
 };
 const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunc, initialValue);
