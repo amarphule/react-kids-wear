@@ -17,12 +17,10 @@ const Product = ({ product }) => {
 
   const { wishlist, setWishlist } = useWishList();
 
-  const addWishlistHandler = (e) => {
-    e.preventDefault();
+  const addWishlistHandler = () => {
     setWishlist((prevWish) => [...prevWish, product]);
   };
-  const removeWishlistHandler = (e) => {
-    e.preventDefault();
+  const removeWishlistHandler = () => {
     const newWishlist = wishlist.filter((element) => element._id != _id);
     setWishlist(newWishlist);
   };
@@ -32,14 +30,14 @@ const Product = ({ product }) => {
       {wishlist.find((element) => element._id === _id) ? (
         <span
           className="card-badge card-badge-icon"
-          onClick={(e) => removeWishlistHandler(e)}
+          onClick={removeWishlistHandler}
         >
           <i className="fas fa-heart"></i>
         </span>
       ) : (
         <span
           className="card-badge card-badge-icon"
-          onClick={(e) => addWishlistHandler(e)}
+          onClick={addWishlistHandler}
         >
           <i class="far fa-heart"></i>
         </span>
