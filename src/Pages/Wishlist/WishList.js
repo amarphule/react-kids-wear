@@ -13,7 +13,7 @@ const WishList = () => {
         <h2 className="text-center">My Wishlist</h2>
 
         <Link to={"/product-lists"}>
-          <span className="text-mark">Go to Product lists </span>
+          <span className="text-mark">Shop now</span>
         </Link>
 
         {wishlist.length <= 0 ? (

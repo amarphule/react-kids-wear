@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContext";
+import { uesCart } from "../../Contexts/CartContext";
 import { useWishList } from "../../Contexts/WishListContext";
 
 const Navbar = () => {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
   const { wishlist } = useWishList();
+  const { cartItem } = uesCart();
   return (
     <div>
       <header className="header">
@@ -53,7 +55,9 @@ const Navbar = () => {
               <Link to="/cart">
                 <div className="badge-wrapper">
                   <i className="fas fa-shopping-bag"></i>
-                  <span className="badge badge-icon-val">3</span>
+                  <span className="badge badge-icon-val">
+                    {cartItem.length}
+                  </span>
                 </div>
               </Link>
             </li>

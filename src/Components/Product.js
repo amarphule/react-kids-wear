@@ -1,45 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
+import { uesCart } from "../Contexts/CartContext";
 import { useWishList } from "../Contexts/WishListContext";
 
 const Product = ({ product }) => {
-  const [isInCart, setIsInCart] = useState(false);
   const { _id, title, discount, price, categoryName, image, rating, inStock } =
     product;
 
   const discountedPrice = Number(price) + Number((price * discount) / 100);
 
-  const addToCartHandler = () => {
-    setIsInCart(true);
-  };
-  const removeFromCartHandler = () => {
-    setIsInCart(false);
-  };
+  const { wishlist, addWishlistHandler, removeWishlistHandler } = useWishList();
 
-  const { wishlist, setWishlist } = useWishList();
+  const { cartItem, addToCartHandler, removeFromCartHandler } = uesCart();
 
-  const addWishlistHandler = () => {
-    setWishlist((prevWish) => [...prevWish, product]);
-  };
-  const removeWishlistHandler = () => {
-    const newWishlist = wishlist.filter((element) => element._id != _id);
-    setWishlist(newWishlist);
-  };
   return (
     <div className="card" key={_id}>
       <img className="img-thumbnail" src={image} alt={image} />
       {wishlist.find((element) => element._id === _id) ? (
         <span
           className="card-badge card-badge-icon"
-          onClick={removeWishlistHandler}
+          onClick={() => removeWishlistHandler(_id)}
         >
           <i className="fas fa-heart"></i>
         </span>
       ) : (
         <span
           className="card-badge card-badge-icon"
-          onClick={addWishlistHandler}
+          onClick={() => addWishlistHandler(product)}
         >
-          <i class="far fa-heart"></i>
+          <i className="far fa-heart"></i>
         </span>
       )}
       <div className="card-details">
@@ -70,12 +58,22 @@ const Product = ({ product }) => {
             </span>
           </div>
         )}
-        {isInCart ? (
-          <button className="btn btn-cta" onClick={removeFromCartHandler}>
+        {cartItem.find((item) => item._id === _id) ? (
+          <button
+            className="btn btn-error"
+            onClick={() => removeFromCartHandler(_id)}
+          >
             Remove from cart
           </button>
         ) : (
-          <button className="btn btn-cta" onClick={addToCartHandler}>
+          <button
+            className="btn btn-cta"
+            onClick={() => {
+              addToCartHandler(product);
+              removeWishlistHandler(_id);
+            }}
+            disabled={!inStock ? true : ""}
+          >
             Add to cart
           </button>
         )}
