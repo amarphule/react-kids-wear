@@ -98,3 +98,12 @@ body {
   gap: 3rem;
 }
 /* New Arrival End*/
+
+/* Start button disabled */
+button:disabled,
+button[disabled]{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* End button disabled */

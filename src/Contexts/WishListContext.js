@@ -8,8 +8,23 @@ const WishListProvoder = ({ children }) => {
 
   const { isLoggedIn } = useAuth();
 
+  const addWishlistHandler = (product) => {
+    setWishlist((prevWish) => [...prevWish, product]);
+  };
+
+  const removeWishlistHandler = (id) => {
+    const newWishlist = wishlist.filter((element) => element._id != id);
+    setWishlist(newWishlist);
+  };
   return (
-    <WishListContext.Provider value={{ isLoggedIn, wishlist, setWishlist }}>
+    <WishListContext.Provider
+      value={{
+        isLoggedIn,
+        wishlist,
+        addWishlistHandler,
+        removeWishlistHandler,
+      }}
+    >
       {children}
     </WishListContext.Provider>
   );
