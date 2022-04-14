@@ -1,4 +1,6 @@
 import React from "react";
+import { Navigate, Link } from "react-router-dom";
+import { useAuth } from "../Contexts/AuthContext";
 import { uesCart } from "../Contexts/CartContext";
 import { useWishList } from "../Contexts/WishListContext";
 
@@ -11,6 +13,8 @@ const Product = ({ product }) => {
   const { wishlist, addWishlistHandler, removeWishlistHandler } = useWishList();
 
   const { cartItem, addToCartHandler, removeFromCartHandler } = uesCart();
+
+  const { isLoggedIn } = useAuth();
 
   return (
     <div className="card" key={_id}>
@@ -65,7 +69,7 @@ const Product = ({ product }) => {
           >
             Remove from cart
           </button>
-        ) : (
+        ) : isLoggedIn ? (
           <button
             className="btn btn-cta"
             onClick={() => {
@@ -76,6 +80,10 @@ const Product = ({ product }) => {
           >
             Add to cart
           </button>
+        ) : (
+          <Link className="btn btn-cta" to="/login">
+            Add to cart
+          </Link>
         )}
       </div>
     </div>
