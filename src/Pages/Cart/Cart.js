@@ -34,57 +34,60 @@ const Cart = () => {
                   </Link>
                 </>
               ) : (
-                cartItem.map(({ title, _id, image, discount, price }) => (
-                  <div className="cart-card d-flex" key={_id}>
-                    <img className="img-cart" src={image} alt="boy" />
-                    <div className="cart-card-details">
-                      <p className="h2">{title}</p>
-                      <p className="h1 d-flex">
-                        &#8377; {price}
-                        <small className="line-through text-gray">
-                          &#8377;
-                          {Number(price) + Number((price * discount) / 100)}
-                        </small>
-                      </p>
-                      <p className="text-gray">
-                        <b>{discount}% off</b>
-                      </p>
-                      <p className="quantity">
-                        <span>Quantity: </span>
-                        <button>-</button>
-                        <input
-                          className="text-center"
-                          type="number"
-                          value="1"
-                        />
-                        <button>+</button>
-                      </p>
-                      <div className="btn-cart">
-                        <button
-                          onClick={() => {
-                            addWishlistHandler({
-                              title,
-                              _id,
-                              image,
-                              discount,
-                              price,
-                            });
-                            removeFromCartHandler(_id);
-                          }}
-                          className="btn btn-cta-outline"
-                        >
-                          Move to wishlist
-                        </button>
-                        <button
-                          onClick={() => removeFromCartHandler(_id)}
-                          className="btn btn-error-outline"
-                        >
-                          Remove from cart
-                        </button>
+                cartItem.map(
+                  ({ title, _id, image, discount, price, inStock }) => (
+                    <div className="cart-card d-flex" key={_id}>
+                      <img className="img-cart" src={image} alt="boy" />
+                      <div className="cart-card-details">
+                        <p className="h2">{title}</p>
+                        <p className="h1 d-flex">
+                          &#8377; {price}
+                          <small className="line-through text-gray">
+                            &#8377;
+                            {Number(price) + Number((price * discount) / 100)}
+                          </small>
+                        </p>
+                        <p className="text-gray">
+                          <b>{discount}% off</b>
+                        </p>
+                        <p className="quantity">
+                          <span>Quantity: </span>
+                          <button>-</button>
+                          <input
+                            className="text-center"
+                            type="number"
+                            value="1"
+                          />
+                          <button>+</button>
+                        </p>
+                        <div className="btn-cart">
+                          <button
+                            onClick={() => {
+                              addWishlistHandler({
+                                title,
+                                _id,
+                                image,
+                                discount,
+                                price,
+                                inStock,
+                              });
+                              removeFromCartHandler(_id);
+                            }}
+                            className="btn btn-cta-outline"
+                          >
+                            Move to wishlist
+                          </button>
+                          <button
+                            onClick={() => removeFromCartHandler(_id)}
+                            className="btn btn-error-outline"
+                          >
+                            Remove from cart
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))
+                  )
+                )
               )}
             </div>
             <div className="two">
