@@ -11,7 +11,12 @@ const Signup = () => {
     password: "",
     confPassword: "",
   });
+  const [isVisible, setIsVisible] = useState(true);
+
   const { signupHandler } = useAuth();
+  const isVisibleHandler = () => {
+    setIsVisible(!isVisible);
+  };
   return (
     <div>
       <form
@@ -20,6 +25,7 @@ const Signup = () => {
           signupHandler(addUser);
         }}
         className="container"
+        autocomplete="off"
       >
         <div className="card-login card-shadow">
           <h2 className="text-center">SignUp</h2>
@@ -68,7 +74,7 @@ const Signup = () => {
             </label>
             <input
               className="form-control"
-              type="password"
+              type={isVisible ? "password" : "text"}
               onChange={(e) =>
                 setAddUser({ ...addUser, password: e.target.value })
               }
@@ -76,12 +82,12 @@ const Signup = () => {
             />
           </div>
           <div className="input-group">
-            <label className="label" htmlFor="password">
+            <label className="label" htmlFor="confPassword">
               Confirm Password :
             </label>
             <input
               className="form-control"
-              type="password"
+              type={isVisible ? "password" : "text"}
               onChange={(e) =>
                 setAddUser({ ...addUser, confPassword: e.target.value })
               }
@@ -89,16 +95,15 @@ const Signup = () => {
             />
           </div>
           <div className="input-group d-flex">
-            <div className="showPass">
-              <button>
+            {isVisible ? (
+              <button onClick={isVisibleHandler}>
                 <i className="fas fa-eye"></i>Show
               </button>
-            </div>
-            <div className="hidePass">
-              <button>
+            ) : (
+              <button onClick={isVisibleHandler}>
                 <i className="fas fa-eye-slash"></i>Hide
               </button>
-            </div>
+            )}
           </div>
           <div className="input-group">
             <input type="checkbox" name="remember" id="remember" />
