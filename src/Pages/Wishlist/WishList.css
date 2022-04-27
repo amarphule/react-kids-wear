@@ -1,0 +1,7 @@
+.container {
+  position: relative;
+  top: 5rem;
+}
+.card-badge-icon {
+  color: var(--cta-color);
+}
