@@ -5,11 +5,15 @@ import "./Login.css";
 
 const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
+  const [isVisible, setIsVisible] = useState(true);
   const { loginHandler } = useAuth();
 
   const logoutHandler = (e) => {
     e.preventDefault();
     loginHandler(user.email, user.password);
+  };
+  const isVisibleHandler = () => {
+    setIsVisible(!isVisible);
   };
   return (
     <div>
@@ -19,6 +23,7 @@ const Login = () => {
             logoutHandler(e);
           }}
           className="card-login card-shadow"
+          autocomplete="off"
         >
           <h2 className="text-center">Login</h2>
           <div className="input-group">
@@ -40,7 +45,7 @@ const Login = () => {
             </label>
             <input
               className="form-control"
-              type="password"
+              type={isVisible ? "password" : "text"}
               id="password"
               placeholder="**********"
               value={user.password}
@@ -48,16 +53,15 @@ const Login = () => {
             />
           </div>
           <div className="input-group d-flex">
-            <div className="showPass">
-              <button>
+            {isVisible ? (
+              <button onClick={isVisibleHandler}>
                 <i className="fas fa-eye"></i>Show
               </button>
-            </div>
-            <div className="hidePass">
-              <button>
+            ) : (
+              <button onClick={isVisibleHandler}>
                 <i className="fas fa-eye-slash"></i>Hide
               </button>
-            </div>
+            )}
           </div>
           <div className="input-group">
             <input type="checkbox" name="remember" id="remember" />
