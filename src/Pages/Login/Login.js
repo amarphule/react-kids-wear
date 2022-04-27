@@ -29,6 +29,7 @@ const Login = () => {
               className="form-control"
               type="email"
               id="email"
+              value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
               placeholder="amardeepphule@gmail.com"
             />
@@ -42,6 +43,7 @@ const Login = () => {
               type="password"
               id="password"
               placeholder="**********"
+              value={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
           </div>
@@ -67,6 +69,20 @@ const Login = () => {
           <div className="input-group">
             <button type="submit" className="form-control btn btn-cta">
               Login
+            </button>
+          </div>
+          <div className="input-group">
+            <button
+              // type="submit"
+              onClick={() =>
+                setUser({
+                  email: "adarshbalika@gmail.com",
+                  password: "adarshbalika",
+                })
+              }
+              className="form-control btn btn-cta"
+            >
+              Guest Login
             </button>
           </div>
           <div className="input-group">
