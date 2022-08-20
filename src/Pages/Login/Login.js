@@ -77,7 +77,7 @@ const Login = () => {
           </div>
           <div className="input-group">
             <button
-              // type="submit"
+              type="submit"
               onClick={() =>
                 setUser({
                   email: "adarshbalika@gmail.com",
