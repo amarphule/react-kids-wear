@@ -13,7 +13,6 @@ const CartProvider = ({ children }) => {
     const newCartItem = cartItem.filter((item) => item._id != id);
     setCartItem(newCartItem);
   };
-  console.log(cartItem);
 
   return (
     <CartContext.Provider

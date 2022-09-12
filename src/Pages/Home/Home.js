@@ -5,8 +5,8 @@ import NewArrival from "../../Components/Home/NewArrival";
 const Home = () => {
   return (
     <div>
-      <NewArrival />
       <Banner />
+      <NewArrival />
       <Category />
     </div>
   );

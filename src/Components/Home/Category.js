@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { categories } from "../../backend/db/categories";
 import { useNavigate } from "react-router-dom";
+import "./Category.css";
 
 const Category = () => {
   const [catagoryItems, setCatagoryItems] = useState(categories);
@@ -9,7 +10,7 @@ const Category = () => {
     <div>
       <div className="container feature">
         <h2 className="text-center">Feature categories</h2>
-        <section className="d-flex justify-content-space-between">
+        <section className="d-flex justify-content-space-around">
           {catagoryItems &&
             catagoryItems.map((item) => (
               <div
